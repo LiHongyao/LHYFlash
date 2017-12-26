@@ -76,9 +76,10 @@
          */
         if(this.config.autoPlay && !isNaN(this.config.autoPlay)) {
             this.play();
+            this.addEvent(this.flash, "mouseenter", this.stop.bind(this));
+            this.addEvent(this.flash, "mouseleave", this.play.bind(this));
         }
-        this.addEvent(this.flash, "mouseenter", this.stop.bind(this));
-        this.addEvent(this.flash, "mouseleave", this.play.bind(this));
+
     };
 
     LHYFlash.prototype = {
