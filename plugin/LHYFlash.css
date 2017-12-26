@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+lhy-flash {
+    display: block;
+    width:  100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+lhy-imgs {
+    display: block;
+    width:  100%;
+    height: 100%;
+    position: relative;
+}
+
+lhy-imgs.scroll {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+}
+
+lhy-imgs > lhy-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center center !important;
+    background-size: cover !important;
+}
+
+lhy-imgs.default > lhy-img {
+    display: none;
+}
+lhy-imgs.default > lhy-img.lhy-show {
+    display: block;
+}
+
+lhy-imgs.fade > lhy-img {
+    position: absolute;
+    top:  0;
+    left: 0;
+    opacity: 0;
+}
+lhy-imgs.fade > lhy-img.lhy-show {
+    opacity: 1;
+}
+
+
+/**
+ *  按钮样式
+ */
+lhy-btn {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 5px solid #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+}
+lhy-flash:hover lhy-btn {
+    display: inline-block;
+}
+.lhy-flash-prev-btn {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(45deg);
+    left: 30px;
+}
+.lhy-flash-next-btn {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(-45deg);
+    right: 30px;
+}
+
+
+
+/**
+ *  小圆点样式
+ */
+lhy-idots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    z-index: 1000;
+
+}
+lhy-idot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: orange;
+    margin: 0 6px;
+    cursor: pointer;
+}
+
+.lhy-active {
+    background: purple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

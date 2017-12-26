@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+
+
+.flash {
+    width:  500px;
+    height: 300px;
+    background: pink;
+    margin: 100px auto;
+}
+
+table {
+    border-collapse: collapse;
+    font: 14px "微软雅黑";
+    color: #666;
+}
+th, td {
+    border: 1px solid #eee;
+    padding: 3px 0 3px 8px;
+}
+
+
+.code {
+    white-space: pre-wrap;
+    background: #eee;
+    border: 1px solid #666;
+    border-radius: 10px;
+    margin: 35px 0;
+}
+
+
