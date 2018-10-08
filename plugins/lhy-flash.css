@@ -1,0 +1,83 @@
+@charset 'uft-8';
+
+@font-face {
+    font-family: 'iconfont';  /* project id 863584 */
+    src: url('//at.alicdn.com/t/font_863584_v84eth8zmyc.eot');
+    src: url('//at.alicdn.com/t/font_863584_v84eth8zmyc.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_863584_v84eth8zmyc.woff') format('woff'),
+    url('//at.alicdn.com/t/font_863584_v84eth8zmyc.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_863584_v84eth8zmyc.svg#iconfont') format('svg');
+  }
+
+
+* {
+    margin: 0; padding: 0;
+}
+
+.lhy-flash-wrapper.fade .lhy-flash-slide:not(:first-child),
+.lhy-flash-wrapper.default .lhy-flash-slide:not(:first-child){
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.lhy-flash-wrapper.scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.lhy-flash-wrapper.scroll .lhy-flash-slide{
+    float: left;
+}
+
+.lhy-flash-wrapper.default .lhy-flash-slide.show,
+.lhy-flash-wrapper.fade .lhy-flash-slide.show {
+    opacity: 1;
+    z-index: 10;
+}
+
+.lhy-flash-slide img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.lhy-flash-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 11;
+}
+.lhy-flash-pagination-item {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    margin: 0 12px;
+    background: orange;
+    cursor: pointer;
+    transition: background .25s linear;
+}
+.lhy-flash-pagination-item.show {
+    background: purple;
+}
+.lhy-flash-prev-btn,
+.lhy-flash-next-btn {
+    font: normal 38px 'iconfont';
+    color: #fff;
+    background: #808080;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 11;
+}
+.lhy-flash-prev-btn {
+    left: 20px;
+}
+.lhy-flash-next-btn  {
+    right: 20px;
+} 
+
+

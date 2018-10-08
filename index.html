@@ -1,80 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript - 轮播图组件封装</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="plugin/LHYFlash.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图滚动封装效果演示</title>
+    <link rel="stylesheet" href="./plugins/lhy-flash.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+    <!-- 显示轮播图容器 -->
+    <div id="flash-box"></div>
 
-
-
-<div id="flash01" class="flash"></div>
-<div id="flash02" class="flash"></div>
-<div id="flash03" class="flash"></div>
-
-
-
-<div>
-    <h1>Use Guide</h1>
-    <section>
-        <h3>配置</h3>
-        <table cellspacing="0">
-            <tr>
-                <th>属性</th>
-                <th>描述</th>
-            </tr>
-            <tr>
-                <td>id（必填）</td>
-                <td>依赖元素id值</td>
-            </tr>
-            <tr>
-                <td>effect</td>
-                <td>轮播切换效果，支持 default/scroll/fade，默认为 default</td>
-            </tr>
-            <tr>
-                <td>autoPlay</td>
-                <td>自动切换时间，默认为3000毫秒，如果不需要自动切换，可设置其值为false。</td>
-            </tr>
-            <tr>
-                <td>duration</td>
-                <td>设置图片切换持续时间</td>
-            </tr>
-            <tr>
-                <td>path（必填）</td>
-                <td>显示图片路径</td>
-            </tr>
-            <tr>
-                <td>clickCallBack</td>
-                <td>点击图片时的回调函数</td>
-            </tr>
-        </table>
-    </section>
-    <section>
-        <h3>使用</h3>
-        <div class="code">
-            new LHYFlash({
-                id: "flash",
-                effect: "fade",
-                autoPlay: 5000,
-                duration: 1000,
-                path: ["imgs/1.jpg", "imgs/2.jpg", "imgs/3.jpg", "imgs/4.jpg", "imgs/5.jpg", "imgs/6.jpg"],
-                clickCallBack:function (idx) {
-                    console.log("点击了第" + idx + "张图片！");
-                }
-            });
-        </div>
-    </section>
-</div>
-
-
-
-
-<script type="text/javascript" src="plugin/LHYDOMOperations.js"></script>
-<script type="text/javascript" src="plugin/LHYFlash.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-
-
+    <script src="./plugins/lhy-flash.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
