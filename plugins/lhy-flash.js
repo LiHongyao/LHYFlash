@@ -15,9 +15,9 @@ class LHYFlash {
             throw "LHYFlash: missing ‘id’ or ‘imgs’ parameter." 
         }
         // 2. 默认参数设置
-        this.interval   = options.interval || 3000;
-        this.duration   = options.duration || 500;
-        this.effect     = options.effect   || "default";
+        this.interval   = options.interval   || 3000;
+        this.duration   = options.duration   || 500;
+        this.effect     = options.effect     || "default";
         this.clickSlide = options.clickSlide || function() {};
         // 3. 加载元素
         this.container = document.getElementById(options.id);
@@ -40,18 +40,27 @@ class LHYFlash {
         // > 轮播定时器
         this.timer      = null;
 
-        // 5. 初始化样式
+        // 5. 默认样式
+        // 相对定位，便于子视图绝对定位
         this.container.style.position = "relative";
+        // 默认将第一个小圆点设置为显示状态
         this.paginationItems[0].classList.add('show');
+        // 记录LHYPage实例
         var _this = this;
+        // 默认系显示轮播内容
         if(this.effect === "scroll") {
-            _this.updateSize();
+            _this.container.style.overflow = "hidden";
+            _this.updateSizeForScroll();
         }else {
             this.slides[0].classList.add('show');
         }
         // 6. 监听窗口
         window.onresize = function() {
-            _this.updateSize()
+            if(_this.effect === "scroll") {
+                _this.updateSizeForScroll()
+            }else {
+                _this.container.style.height = _this.wrapper.offsetHeight + "px";
+            }
         };
         window.onload = function() {
             _this.container.style.height = _this.wrapper.offsetHeight + "px";
@@ -144,7 +153,7 @@ class LHYFlash {
         this.container.innerHTML = htmlStr;
     }
     // 初始化数据
-    updateSize() {
+    updateSizeForScroll() {
         var _this = this;
         // 1. 获取容器宽度
         this.width = this.container.offsetWidth;
@@ -155,9 +164,9 @@ class LHYFlash {
             slide.style.width = _this.width + "px";
         });
         // 4. 更新容器高度
-        this.container.style.height = _this.wrapper.offsetHeight + "px";
+        this.container.style.height = this.wrapper.offsetHeight + "px";
         // 5. 更新偏移
-        this.wrapper.style.left = -this.width + "px";
+        this.wrapper.style.left = -this.width + "px"; 
     }
     // 切换显示
     tab(offset) {

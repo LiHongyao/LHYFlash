@@ -1,7 +1,7 @@
 (function() {
     var flash = new LHYFlash({
         id: "flash-box",
-        effect: "default",
+        effect: "scroll",
         imgs: [
             "./images/01.jpg",
             "./images/02.jpg",
