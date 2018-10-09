@@ -36,9 +36,10 @@ class LHYFlash {
         // > 分页指示器集合
         this.paginationItems = Array.from(this.container.querySelectorAll('.lhy-flash-pagination-item'));
         // > 当前显示下标
-        this.curIndex   = 1;
+        this.curIndex    = 1;
         // > 轮播定时器
-        this.timer      = null;
+        this.timer       = null;
+        this.isAnimating = false;
 
         // 5. 默认样式
         // 相对定位，便于子视图绝对定位
@@ -67,6 +68,7 @@ class LHYFlash {
         };
         // 7. 左右切换
         this.nextBtn.onclick = function() {
+            if(_this.effect === "scroll" && _this.isAnimating === true) { return; }
             if(_this.curIndex == _this.length) {
                 _this.curIndex = 1;
             }else {
@@ -76,6 +78,7 @@ class LHYFlash {
             _this.updatePaginationItems();
         };
         this.prevBtn.onclick = function() {
+            if(_this.effect === "scroll" && _this.isAnimating === true) { return; }
             if(_this.curIndex == 1) {
                 _this.curIndex = _this.length;
             }else {
@@ -90,7 +93,7 @@ class LHYFlash {
             paginationItem.onclick = function(event) {
                 event = event || e;
                 var index = parseInt(event.target.dataset.index);
-                if(_this.curIndex == index) {
+                if(_this.curIndex == index || (_this.effect === "scroll" && _this.isAnimating === true)) {
                     return;
                 }
                 if(_this.effect === "scroll") {
@@ -171,6 +174,7 @@ class LHYFlash {
     // 切换显示
     tab(offset) {
         if(this.effect === "scroll") {
+            this.isAnimating = true;
             var curLeft  = parseInt(this.getStyle(this.wrapper, "left"));
             var desLeft  = curLeft + offset;
             var duration = 500;
@@ -185,6 +189,7 @@ class LHYFlash {
                     _this.wrapper.style.left = curLeft +  speed + "px";
                 }else {
                     clearInterval(timer);
+                    _this.isAnimating = false;
                     _this.wrapper.style.left = desLeft + "px";
                     if(desLeft < -_this.length * _this.width) {
                         _this.wrapper.style.left = -_this.width + "px";

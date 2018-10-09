@@ -30,6 +30,9 @@
 .lhy-flash-wrapper.scroll .lhy-flash-slide{
     float: left;
 }
+.lhy-flash-wrapper .lhy-flash-slide {
+    overflow: hidden;
+}
 
 .lhy-flash-wrapper.default .lhy-flash-slide.show,
 .lhy-flash-wrapper.fade .lhy-flash-slide.show {

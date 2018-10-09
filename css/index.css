@@ -1,4 +1,11 @@
-#flash-box {
-    width: 500px;
+@charset 'utf-8';
+
+.flash-box {
     margin: 100px auto;
+    min-width: 1100px;
+}
+
+#flash2 {
+    width: 500px;
+    margin: 300px auto;
 }
